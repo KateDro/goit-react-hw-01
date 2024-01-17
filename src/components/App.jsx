@@ -1,18 +1,38 @@
 import Profile from './Profile/Profile';
-import userData from '../data/userData.json';
+import user from '../data/user.json';
 
-function App() {
+import Statistics from './Statistics/Statistics';
+import data from '../data/data.json';
+
+import FriendList from './FriendList/FriendList';
+import friends from '../data/friends.json';
+
+import TransactionHistory from './TransactionHistory/TransactionHistory';
+import transactions from '../data/transactions.json';
+
+export const App = () => {
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 20,
+        padding: 40,
+        backgroundColor: 'rgb(239, 253, 255)',
+      }}
+    >
       <Profile
-        username={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        avatar={userData.avatar}
-        stats={userData.stats}
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
       />
+      <Statistics title="Upload stats" stats={data} />
+      <Statistics stats={data} />
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
     </div>
   );
-}
-
-export default App;
+};
