@@ -1,38 +1,28 @@
-import Profile from './Profile/Profile';
-import user from '../data/user.json';
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+// import './App.css'
+import userData from '../data/userData.json';
+import list from '../data/list.json';
+import transaction from '../data/transaction.json';
+import Profile from './Profile/Profile.jsx';
+import FriendList from './FriendList/FriendList.jsx';
+import TransactionHistory from './TransactionHistory/TransactionHistory.jsx';
 
-import Statistics from './Statistics/Statistics';
-import data from '../data/data.json';
-
-import FriendList from './FriendList/FriendList';
-import friends from '../data/friends.json';
-
-import TransactionHistory from './TransactionHistory/TransactionHistory';
-import transactions from '../data/transactions.json';
-
-export const App = () => {
+const App = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 20,
-        padding: 40,
-        backgroundColor: 'rgb(239, 253, 255)',
-      }}
-    >
+    <div>
       <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
+        name={userData.name}
+        tag={userData.tag}
+        location={userData.location}
+        image={userData.avatar}
+        stats={userData.stats}
       />
-      <Statistics title="Upload stats" stats={data} />
-      <Statistics stats={data} />
-      <FriendList friends={friends} />
-      <TransactionHistory items={transactions} />
+      <FriendList friends={list}></FriendList>
+      <TransactionHistory items={transaction} />
     </div>
   );
 };
+
+export default App;

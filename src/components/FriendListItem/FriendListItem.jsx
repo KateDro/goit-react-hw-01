@@ -1,13 +1,14 @@
-import css from './FriendListItem.module.css';
+import styles from './FriendListItem.module.css';
 
-const FriendListItem = ({ avatar, name, isOnline }) => {
+function FriendListItem({ avatar, name, isOnline }) {
+  const statusClass = isOnline ? styles.online : styles.offline;
   return (
-    <>
-      <span className={isOnline ? css.statusOnline : css.statusOffline}></span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
-    </>
+    <div className={styles.item}>
+      <img className={styles.avatar} src={avatar} alt={name} width="50" />
+      <p className={styles.name}>{name}</p>
+      <p className={statusClass}>{isOnline ? 'Online' : 'Offline'}</p>
+    </div>
   );
-};
+}
 
 export default FriendListItem;
