@@ -4,7 +4,11 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
     <div className={css.profile}>
       <div className={css.profileDesc}>
-        <img src={avatar} alt="User avatar" className={css.profileAvatar} />
+        <img
+          src={avatar}
+          alt="User avatar"
+          className={css.profileAvatar}
+        />
         <p className={css.profileName}>{username}</p>
         <p className={css.profileTag}>@{tag}</p>
         <p className={css.profileLocation}>{location}</p>
